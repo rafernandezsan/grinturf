@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { Droplets, Sun, Shield, Leaf, Phone, Mail, MapPin, CheckCircle, Star, ArrowRight, Menu } from "lucide-react"
+import { Droplets, Sun, Shield, Leaf, Phone, Mail, CheckCircle, Star, ArrowRight, Menu } from "lucide-react"
 
 export default function Home() {
   return (
@@ -80,7 +80,7 @@ export default function Home() {
               <div className="flex items-center gap-6 pt-4">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span className="text-sm text-muted-foreground">15-Year Warranty</span>
+                  <span className="text-sm text-muted-foreground">10-Year Warranty</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
@@ -119,11 +119,11 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-3xl md:text-4xl font-bold">5,000+</p>
+              <p className="text-3xl md:text-4xl font-bold">Become one of our</p>
               <p className="text-sm opacity-90">Happy Customers</p>
             </div>
             <div>
-              <p className="text-3xl md:text-4xl font-bold">15 Years</p>
+              <p className="text-3xl md:text-4xl font-bold">10 Years</p>
               <p className="text-sm opacity-90">Warranty Coverage</p>
             </div>
             <div>
@@ -309,7 +309,7 @@ export default function Home() {
                 <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <Shield className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle className="text-lg text-foreground">15-Year Warranty</CardTitle>
+                <CardTitle className="text-lg text-foreground">10-Year Warranty</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -454,7 +454,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Call Us</p>
-                    <p className="text-muted-foreground">(555) GRIN-TURF</p>
+                    <p className="text-muted-foreground">(404) 301-8718</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -464,15 +464,6 @@ export default function Home() {
                   <div>
                     <p className="font-medium text-foreground">Email Us</p>
                     <p className="text-muted-foreground">info@grinturf.com</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground">Visit Us</p>
-                    <p className="text-muted-foreground">123 Green Street, Lawn City, CA 90210</p>
                   </div>
                 </div>
               </div>
