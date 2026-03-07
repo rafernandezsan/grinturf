@@ -23,13 +23,12 @@ export async function sendContactEmail(formData: FormData) {
 
   const resend = new Resend(apiKey)
 
-  // Use the verified domain email or fallback to onboarding@resend.dev for testing
-  // Once you verify grinturf.com in Resend, change this to: noreply@grinturf.com
-  const fromEmail = process.env.RESEND_FROM_EMAIL || "GrinTurf Contact Form <onboarding@resend.dev>"
+  // Format the from email with display name for Resend
+  const fromEmailAddress = process.env.RESEND_FROM_EMAIL || "info@grinturf.com"
+  const fromEmail = `GrinTurf <${fromEmailAddress}>`
   
-  // For testing with unverified domains, Resend only delivers to the account owner's email
-  // Once grinturf.com is verified, this will work for info@grinturf.com
-  const toEmail = process.env.RESEND_TO_EMAIL || "info@grinturf.com"
+  // Send to info@grinturf.com
+  const toEmail = "info@grinturf.com"
 
   try {
     const { data, error } = await resend.emails.send({
