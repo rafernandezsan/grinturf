@@ -23,10 +23,17 @@ export async function sendContactEmail(formData: FormData) {
 
   const resend = new Resend(apiKey)
 
+  // Format the from email with display name for Resend
+  const fromEmailAddress = process.env.RESEND_FROM_EMAIL || "info@grinturf.com"
+  const fromEmail = `GrinTurf <${fromEmailAddress}>`
+  
+  // Send to info@grinturf.com
+  const toEmail = "info@grinturf.com"
+
   try {
-    await resend.emails.send({
-      from: "GrinTurf Contact Form <onboarding@resend.dev>",
-      to: "info@grinturf.com",
+    const { data, error } = await resend.emails.send({
+      from: fromEmail,
+      to: toEmail,
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `
@@ -39,9 +46,16 @@ export async function sendContactEmail(formData: FormData) {
       `,
     })
 
+    if (error) {
+      console.error("[v0] Resend API error:", error)
+      return { success: false, error: `Email delivery failed: ${error.message}` }
+    }
+
+    console.log("[v0] Email sent successfully:", data)
     return { success: true }
   } catch (error) {
     console.error("[v0] Failed to send email:", error)
-    return { success: false, error: "Failed to send message. Please try again later." }
+    const errorMessage = error instanceof Error ? error.message : "Unknown error"
+    return { success: false, error: `Failed to send message: ${errorMessage}` }
   }
 }
