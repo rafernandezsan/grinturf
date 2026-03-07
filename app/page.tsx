@@ -1,10 +1,9 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Droplets, Sun, Shield, Leaf, Phone, Mail, CheckCircle, Star, ArrowRight, Menu } from "lucide-react"
+import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
   return (
@@ -454,7 +453,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Call Us</p>
-                    <p className="text-muted-foreground">(404) 301-8718</p>
+                    <p className="text-muted-foreground">(404) 484-4104</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -474,47 +473,7 @@ export default function Home() {
                 <CardDescription>Fill out the form and we'll get back to you within 24 hours.</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="firstName" className="text-sm font-medium text-foreground">
-                        First Name
-                      </label>
-                      <Input id="firstName" placeholder="John" />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="lastName" className="text-sm font-medium text-foreground">
-                        Last Name
-                      </label>
-                      <Input id="lastName" placeholder="Doe" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-foreground">
-                      Email
-                    </label>
-                    <Input id="email" type="email" placeholder="john@example.com" />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium text-foreground">
-                      Phone
-                    </label>
-                    <Input id="phone" type="tel" placeholder="(555) 123-4567" />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-foreground">
-                      Tell us about your project
-                    </label>
-                    <Textarea
-                      id="message"
-                      placeholder="I'm interested in artificial turf for my backyard..."
-                      rows={4}
-                    />
-                  </div>
-                  <Button className="w-full" size="lg">
-                    Submit Request
-                  </Button>
-                </form>
+                <ContactForm />
               </CardContent>
             </Card>
           </div>
@@ -537,7 +496,7 @@ export default function Home() {
               </a>
               <p className="text-background/70 text-sm leading-relaxed">
                 Premium artificial turf solutions for homes and businesses. Creating beautiful, sustainable lawns since
-                2010.
+                2025.
               </p>
             </div>
             <div>
