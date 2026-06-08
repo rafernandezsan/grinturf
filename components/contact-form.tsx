@@ -9,6 +9,12 @@ import { Textarea } from "@/components/ui/textarea"
 import { sendContactEmail } from "@/app/actions"
 import { Loader2 } from "lucide-react"
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void
+  }
+}
+
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{
@@ -27,6 +33,13 @@ export function ContactForm() {
     setIsSubmitting(false)
 
     if (result.success) {
+      // Send Google conversion event on successful lead form submission
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "conversion_event_submit_lead_form", {
+          event_timeout: 2000,
+        })
+      }
+
       setSubmitStatus({
         type: "success",
         message: "Thank you! We'll get back to you within 24 hours.",
