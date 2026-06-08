@@ -2,8 +2,9 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Droplets, Sun, Shield, Leaf, Phone, Mail, CheckCircle, Star, ArrowRight, Menu } from "lucide-react"
+import { Droplets, Sun, Shield, Leaf, Phone, Mail, CheckCircle, Star, ArrowRight } from "lucide-react"
 import { ContactForm } from "@/components/contact-form"
+import { MobileMenu } from "@/components/mobile-menu"
 
 export default function Home() {
   return (
@@ -45,11 +46,11 @@ export default function Home() {
             >
               Contact
             </a>
-            <Button>Get Free Quote</Button>
+            <Button asChild>
+              <a href="#contact">Get Free Quote</a>
+            </Button>
           </nav>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-6 w-6" />
-          </Button>
+          <MobileMenu />
         </div>
       </header>
 
@@ -69,11 +70,11 @@ export default function Home() {
                 a lush, green lawn that stays beautiful year-round with zero maintenance.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="gap-2">
-                  Get Free Estimate <ArrowRight className="h-4 w-4" />
+                <Button size="lg" className="gap-2" asChild>
+                  <a href="#contact">Get Free Estimate <ArrowRight className="h-4 w-4" /></a>
                 </Button>
-                <Button size="lg" variant="outline">
-                  View Our Products
+                <Button size="lg" variant="outline" asChild>
+                  <a href="#products">View Our Products</a>
                 </Button>
               </div>
               <div className="flex items-center gap-6 pt-4">
