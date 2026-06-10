@@ -28,6 +28,20 @@ export function ContactForm() {
     setSubmitStatus({ type: null, message: "" })
 
     const formData = new FormData(event.currentTarget)
+
+    // Collect browser/client technical details
+    if (typeof window !== "undefined") {
+      formData.append("pageUrl", window.location.href)
+      formData.append("platform", navigator.platform || "Unknown")
+      formData.append("language", navigator.language || "Unknown")
+      formData.append(
+        "timezone",
+        Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown",
+      )
+      formData.append("screen", `${window.screen.width}x${window.screen.height}`)
+      formData.append("viewport", `${window.innerWidth}x${window.innerHeight}`)
+    }
+
     const result = await sendContactEmail(formData)
 
     setIsSubmitting(false)
